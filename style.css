@@ -1,0 +1,952 @@
+
+/* =========================================
+   1. RESET DAN VARIABEL WARNA
+========================================= */
+:root {
+  --bg: #08111f;
+  --bg-soft: #0d192b;
+  --surface: #111f33;
+  --surface-hover: #172943;
+  --primary: #3b82f6;
+  --primary-light: #60a5fa;
+  --purple: #a78bfa;
+  --text: #f1f5f9;
+  --muted: #9aabc1;
+  --border: rgba(148, 163, 184, 0.17);
+  --radius: 18px;
+  --container: 1120px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 85px;
+}
+
+body {
+  font-family: Inter, "Segoe UI", Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
+
+.container {
+  width: min(var(--container), calc(100% - 40px));
+  margin-inline: auto;
+}
+
+.section {
+  padding: 95px 0;
+}
+
+.section-soft {
+  background: var(--bg-soft);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* =========================================
+   2. NAVBAR
+========================================= */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8, 17, 31, 0.9);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-content {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+  white-space: nowrap;
+}
+
+.logo-icon {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, var(--primary), var(--purple));
+  color: white;
+  border-radius: 11px;
+  font-size: 15px;
+}
+
+.logo b {
+  color: var(--primary-light);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 23px;
+}
+
+.nav-link {
+  font-size: 13px;
+  color: var(--muted);
+  transition: color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: white;
+}
+
+.nav-button {
+  white-space: nowrap;
+}
+
+.menu-toggle {
+  display: none;
+  color: white;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 10px;
+  width: 42px;
+  height: 42px;
+  cursor: pointer;
+  font-size: 21px;
+}
+
+/* =========================================
+   3. TOMBOL
+========================================= */
+.btn {
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 11px 20px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid transparent;
+  transition: transform 0.2s, background 0.2s;
+  cursor: pointer;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+  box-shadow: 0 8px 25px rgba(37, 99, 235, 0.18);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #1d4ed8, #2563eb);
+}
+
+.btn-outline {
+  border-color: rgba(203, 213, 225, 0.3);
+  color: white;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.btn-outline:hover {
+  background: var(--surface);
+}
+
+/* =========================================
+   4. HERO
+========================================= */
+.hero {
+  position: relative;
+  padding: 90px 0 80px;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 85% 25%, rgba(37, 99, 235, 0.15), transparent 35%),
+    radial-gradient(ellipse at 15% 80%, rgba(124, 58, 237, 0.09), transparent 35%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: 65px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  color: var(--primary-light);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 18px;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #34d399;
+  box-shadow: 0 0 12px rgba(52, 211, 153, 0.5);
+}
+
+.hero h1 {
+  font-size: clamp(39px, 5vw, 63px);
+  line-height: 1.13;
+  letter-spacing: -2.5px;
+  font-weight: 850;
+}
+
+.gradient-text {
+  background: linear-gradient(100deg, #60a5fa 10%, #a78bfa 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-description {
+  max-width: 510px;
+  margin-top: 24px;
+  color: var(--muted);
+  font-size: 15px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.hero-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px;
+  margin-top: 45px;
+  padding-top: 25px;
+  border-top: 1px solid var(--border);
+}
+
+.hero-stats div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.hero-stats strong {
+  font-size: 22px;
+  color: white;
+}
+
+.hero-stats span {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.hero-visual {
+  position: relative;
+  padding: 25px 10px;
+}
+
+.visual-glow {
+  position: absolute;
+  inset: 15%;
+  background: rgba(59, 130, 246, 0.22);
+  filter: blur(75px);
+  border-radius: 50%;
+}
+
+.code-card {
+  position: relative;
+  z-index: 1;
+  background: #0c1729;
+  border: 1px solid rgba(96, 165, 250, 0.28);
+  border-radius: 17px;
+  overflow: hidden;
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.35);
+  transform: rotate(-2deg);
+}
+
+.code-header,
+.code-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 20px;
+  color: var(--muted);
+  font-size: 11px;
+  border-bottom: 1px solid var(--border);
+}
+
+.code-footer {
+  border-top: 1px solid var(--border);
+  border-bottom: 0;
+  color: #6ee7b7;
+}
+
+.window-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.window-dots i {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fb7185;
+}
+
+.window-dots i:nth-child(2) {
+  background: #fbbf24;
+}
+
+.window-dots i:nth-child(3) {
+  background: #34d399;
+}
+
+.code-content {
+  padding: 28px 26px;
+  font-family: Consolas, monospace;
+  font-size: 13px;
+  line-height: 2.2;
+  color: #94a3b8;
+}
+
+.code-content h2 {
+  padding-left: 20px;
+  color: #e2e8f0;
+  font-family: Inter, sans-serif;
+  font-size: clamp(19px, 2vw, 28px);
+  line-height: 1.5;
+}
+
+.code-purple {
+  color: #c4b5fd;
+}
+
+.code-blue {
+  color: #7dd3fc;
+}
+
+.indent {
+  padding-left: 20px;
+}
+
+.skill-tags {
+  display: flex;
+  gap: 8px;
+  padding: 8px 20px;
+}
+
+.skill-tags span {
+  padding: 3px 10px;
+  border-radius: 6px;
+  color: #93c5fd;
+  background: rgba(59, 130, 246, 0.13);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  font-size: 11px;
+}
+
+.floating-badge {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 15px;
+  background: #15253c;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.floating-badge span {
+  color: var(--primary-light);
+  font-size: 17px;
+}
+
+.badge-top {
+  top: 0;
+  right: -5px;
+}
+
+.badge-bottom {
+  bottom: 0;
+  left: -15px;
+}
+
+/* =========================================
+   5. JUDUL SECTION
+========================================= */
+.section-heading {
+  max-width: 660px;
+  margin: 0 auto 42px;
+  text-align: center;
+}
+
+.section-heading .eyebrow {
+  margin-bottom: 10px;
+}
+
+.section-heading h2,
+.contact-box h2 {
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1.25;
+  letter-spacing: -1px;
+}
+
+.section-heading p,
+.contact-box > p {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.heading-row {
+  max-width: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  text-align: left;
+}
+
+.heading-row > div {
+  max-width: 620px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  padding: 9px 13px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  border-radius: 9px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* =========================================
+   6. KARTU TENTANG KELAS
+========================================= */
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.info-card,
+.member-card,
+.announcement-card {
+  padding: 25px;
+  background: linear-gradient(145deg, #111f33, #0d192b);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: transform 0.25s, border-color 0.25s;
+}
+
+.info-card:hover,
+.member-card:hover,
+.announcement-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(96, 165, 250, 0.45);
+}
+
+.about-main {
+  grid-column: span 2;
+  grid-row: span 2;
+  padding: 32px;
+  background:
+    radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 40%),
+    linear-gradient(145deg, #111f33, #0d192b);
+}
+
+.card-icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 20px;
+  background: rgba(59, 130, 246, 0.12);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 12px;
+  color: var(--primary-light);
+  font-size: 23px;
+}
+
+.info-card h3,
+.member-card h3,
+.announcement-card h3 {
+  margin-bottom: 10px;
+  font-size: 17px;
+}
+
+.info-card p,
+.member-card p,
+.announcement-card p {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.about-main p {
+  max-width: 540px;
+}
+
+.text-link {
+  display: inline-block;
+  margin-top: 22px;
+  color: var(--primary-light);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* =========================================
+   7. JADWAL
+========================================= */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: #0c1729;
+}
+
+.schedule-table {
+  width: 100%;
+  min-width: 720px;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 12px;
+}
+
+.schedule-table th {
+  background: #15253c;
+  color: #bfdbfe;
+  font-weight: 700;
+}
+
+.schedule-table th,
+.schedule-table td {
+  padding: 18px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.schedule-table td {
+  color: var(--muted);
+}
+
+.schedule-table td:first-child {
+  color: white;
+}
+
+.schedule-table tr:last-child td {
+  border-bottom: none;
+}
+
+.schedule-table tbody tr:hover {
+  background: rgba(59, 130, 246, 0.05);
+}
+
+.small-note {
+  margin-top: 15px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* =========================================
+   8. ANGGOTA KELAS
+========================================= */
+.member-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.member-card {
+  text-align: center;
+  padding: 28px 18px;
+}
+
+.avatar {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #172d4b, #243a60);
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  font-size: 33px;
+}
+
+.member-card h3 {
+  margin-bottom: 3px;
+}
+
+.member-role {
+  display: inline-block;
+  margin-bottom: 13px;
+  color: var(--primary-light);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* =========================================
+   9. PENGUMUMAN
+========================================= */
+.announcement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.announcement-label {
+  display: inline-block;
+  margin-bottom: 20px;
+  padding: 5px 9px;
+  border-radius: 6px;
+  background: rgba(59, 130, 246, 0.12);
+  color: #93c5fd;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.label-purple {
+  background: rgba(167, 139, 250, 0.12);
+  color: #c4b5fd;
+}
+
+.label-green {
+  background: rgba(52, 211, 153, 0.1);
+  color: #6ee7b7;
+}
+
+.announcement-date {
+  display: block;
+  margin-top: 22px;
+  padding-top: 15px;
+  border-top: 1px solid var(--border);
+  color: #71839c;
+  font-size: 10px;
+}
+
+/* =========================================
+   10. GALERI
+========================================= */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-rows: repeat(2, 210px);
+  gap: 18px;
+}
+
+.gallery-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.gallery-large {
+  grid-row: span 2;
+}
+
+.gallery-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(transparent 30%, rgba(4, 10, 20, 0.92));
+  pointer-events: none;
+}
+
+.gallery-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.06);
+}
+
+.gallery-caption {
+  position: absolute;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  padding: 23px;
+}
+
+.gallery-caption span {
+  color: #93c5fd;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  font-weight: 800;
+}
+
+.gallery-caption h3 {
+  margin-top: 5px;
+  font-size: 19px;
+}
+
+/* =========================================
+   11. KONTAK DAN FOOTER
+========================================= */
+.contact-box {
+  text-align: center;
+  padding: 65px 25px;
+  border: 1px solid rgba(96, 165, 250, 0.2);
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse at top, rgba(59, 130, 246, 0.16), transparent 65%),
+    #0d192b;
+}
+
+.contact-box > p {
+  max-width: 550px;
+  margin: 15px auto 25px;
+}
+
+.contact-note {
+  display: block;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 10px;
+}
+
+.footer {
+  border-top: 1px solid var(--border);
+  background: #060d18;
+  padding: 30px 0;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer p {
+  color: var(--muted);
+  font-size: 11px;
+}
+
+/* =========================================
+   12. RESPONSIVE TABLET
+========================================= */
+@media (max-width: 1000px) {
+  .nav-links {
+    gap: 13px;
+  }
+
+  .nav-link {
+    font-size: 12px;
+  }
+
+  .nav-button {
+    display: none;
+  }
+
+  .hero-grid {
+    gap: 35px;
+  }
+
+  .member-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* =========================================
+   13. RESPONSIVE HP
+========================================= */
+@media (max-width: 760px) {
+  .container {
+    width: min(100% - 30px, var(--container));
+  }
+
+  .section {
+    padding: 70px 0;
+  }
+
+  .nav-content {
+    min-height: 68px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .menu-toggle {
+    display: grid;
+    place-items: center;
+    margin-left: auto;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    padding: 10px 0 18px;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .nav-link {
+    padding: 11px 5px;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+
+  .hero {
+    padding: 65px 0 60px;
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  .hero h1 {
+    font-size: clamp(38px, 10vw, 55px);
+    letter-spacing: -1.5px;
+  }
+
+  .hero-description {
+    font-size: 14px;
+  }
+
+  .hero-stats {
+    gap: 24px;
+  }
+
+  .hero-visual {
+    margin: 0 5px;
+  }
+
+  .code-content {
+    padding: 23px 18px;
+  }
+
+  .floating-badge {
+    font-size: 10px;
+  }
+
+  .section-heading {
+    margin-bottom: 30px;
+  }
+
+  .heading-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .about-grid,
+  .announcement-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-main {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .member-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .member-card {
+    padding: 22px 12px;
+  }
+
+  .member-card p {
+    font-size: 12px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 230px);
+  }
+
+  .gallery-large {
+    grid-row: auto;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-box {
+    padding: 45px 18px;
+  }
+}
+
+@media (max-width: 380px) {
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .member-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stats {
+    gap: 18px;
+  }
+}
+
+/* Menghormati pengaturan pengurangan animasi perangkat */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
