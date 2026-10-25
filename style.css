@@ -950,3 +950,43 @@ img {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* SLOT FOTO GALERI X-RPL */
+.gallery-coming-soon {
+  min-height: 240px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #aebdf0;
+  background: rgba(255, 255, 255, 0.65);
+  border-radius: 18px;
+}
+
+.gallery-placeholder {
+  padding: 24px;
+  text-align: center;
+}
+
+.placeholder-plus {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  background: #e8edff;
+  color: #526be0;
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.gallery-placeholder h3 {
+  margin: 14px 0 8px;
+}
+
+.gallery-placeholder p {
+  margin: 0;
+  color: #778198;
+  font-size: 14px;
+  line-height: 1.6;
+}
